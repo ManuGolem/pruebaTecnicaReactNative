@@ -13,7 +13,6 @@ export default function ProductsScreen({ route, navigation }) {
         function handleDetalle() {
             navigation.navigate("DetallesProductos", { item });
         }
-        console.log(item);
         return (
             <Pressable onPress={handleDetalle}>
                 <View style={styles.frame}>
