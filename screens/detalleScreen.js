@@ -19,7 +19,7 @@ export default function ProductDetailScreen({ route }) {
                 <View style={styles.compra}>
                     <BotonesCantidad cantidad={cantidad} setCantidad={setCantidad} styles={styles} />
                     <Pressable style={styles.carrito} onPress={agregarCarrito}>
-                        <Image style={{ height: 20, width: 20 }} resizeMode="cover" source={require("../assets/carrito.png")} />
+                        <Image style={{ height: 20, width: 20 }} resizeMode="contain" source={require("../assets/carrito.png")} />
                         <Text>Agregar al carrito</Text>
                     </Pressable>
                 </View>

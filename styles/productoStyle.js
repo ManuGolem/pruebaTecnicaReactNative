@@ -42,5 +42,13 @@ export default StyleSheet.create({
         backgroundColor: "#ddd",
         borderRadius: 10,
         width: 200,
+        flexDirection: "row",
+        alignContent: "center",
+    },
+    imagen: {
+        height: 15,
+        width: 15,
+        alignSelf: "center",
+        margin: 5,
     },
 });

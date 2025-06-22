@@ -38,7 +38,10 @@ export default function ProductsScreen({ route, navigation }) {
     return (
         <View style={styles.page}>
             <Text style={styles.welcome}>{bienvenida}</Text>
-            <TextInput placeholder="Search here" style={styles.busqueda} onChangeText={(texto) => realizarBusqueda(texto)} />
+            <View style={styles.busqueda}>
+                <Image style={styles.imagen} resizeMode="cover" source={require("../assets/searchIcon.png")} />
+                <TextInput placeholder="Search here" onChangeText={(texto) => realizarBusqueda(texto)} />
+            </View>
             {productos ? <FlatList style={styles.productos} data={productos} renderItem={mostrarProductos} keyExtractor={(item) => item.id} /> : null}
         </View>
     );
