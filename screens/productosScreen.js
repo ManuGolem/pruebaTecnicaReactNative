@@ -1,13 +1,17 @@
-import { View, Text, FlatList, Image, Pressable } from "react-native";
+import { View, Text, FlatList, Image, Pressable, TextInput } from "react-native";
 import styles from "../styles/productoStyle";
 import { useEffect, useState } from "react";
 export default function ProductsScreen({ route, navigation }) {
-    const [productos, setProductos] = useState([]);
+    const [productos, setProductos] = useState();
+    const [copiaProductos, setCopia] = useState([]);
     const bienvenida = "Welcome, ".concat(" ", route.params.usuario.name.firstname);
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
             .then((response) => response.json())
-            .then((data) => setProductos(data));
+            .then((data) => {
+                setProductos(data);
+                setCopia(data);
+            });
     }, []);
     function mostrarProductos({ item }) {
         function handleDetalle() {
@@ -23,9 +27,18 @@ export default function ProductsScreen({ route, navigation }) {
             </Pressable>
         );
     }
+    function realizarBusqueda(texto) {
+        if (texto === "") {
+            setProductos(copiaProductos);
+        } else {
+            const productosFiltrados = copiaProductos.filter((elem) => elem.title.toLowerCase().includes(texto.toLowerCase()));
+            setProductos(productosFiltrados);
+        }
+    }
     return (
         <View style={styles.page}>
             <Text style={styles.welcome}>{bienvenida}</Text>
+            <TextInput placeholder="Search here" style={styles.busqueda} onChangeText={(texto) => realizarBusqueda(texto)} />
             {productos ? <FlatList style={styles.productos} data={productos} renderItem={mostrarProductos} keyExtractor={(item) => item.id} /> : null}
         </View>
     );

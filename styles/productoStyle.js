@@ -10,6 +10,8 @@ export default StyleSheet.create({
     welcome: {
         fontSize: 24,
         fontWeight: "bold",
+        color: "green",
+        margin: 10,
     },
     productos: {
         padding: 10,
@@ -35,5 +37,10 @@ export default StyleSheet.create({
     precio: {
         fontSize: 18,
         fontWeight: "bold",
+    },
+    busqueda: {
+        backgroundColor: "#ddd",
+        borderRadius: 10,
+        width: 200,
     },
 });
