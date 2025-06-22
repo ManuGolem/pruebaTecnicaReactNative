@@ -11,6 +11,7 @@ export default function ProductDetailScreen({ route }) {
     return (
         <View style={styles.page}>
             <View style={styles.item}>
+                <Text style={styles.category}>Category: {category}</Text>
                 <Text style={styles.title}>{title}</Text>
                 <Image style={styles.image} source={{ uri: image }} resizeMode="contain" />
                 <Text style={styles.precio}>${price}</Text>
